@@ -45,7 +45,6 @@
     #circle {
         width: 130px;
         height: 130px;
-        top: 340px; /* Changed to 700px */
         z-index: 2;
     }
     #circle-yolk {
@@ -54,9 +53,8 @@
     }
 
     #timer {
-    font-size:40pt;
+        font-size:40pt;
     }
-
 
 </style>
 </head>
@@ -78,6 +76,10 @@
 </div>
 
 <script>
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
+
 function startTimer() {
     var timeInput = document.getElementById("timeInput").value;
     var totalTime = timeInput * 60;
@@ -115,6 +117,11 @@ function startTimer() {
             }, 1000); // Delay alert by 2 seconds
         }
     }, 1000);
+
+    // Adjust yolk position for mobile devices
+    if (isMobileDevice()) {
+        document.getElementById("yolk").style.bottom = "200px";
+    }
 }
 </script>
 </body>
