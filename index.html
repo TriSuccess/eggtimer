@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -44,7 +45,6 @@
     #circle {
         width: 130px;
         height: 130px;
-        top: 340px; /* Changed to 700px */
         z-index: 2;
     }
     #circle-yolk {
@@ -53,9 +53,8 @@
     }
 
     #timer {
-    font-size:40pt;
+        font-size:40pt;
     }
-
 
 </style>
 </head>
@@ -75,6 +74,10 @@
         <div id="circle-yolk"></div>
     </div>
 </div>
+
+<audio id="sound1" src="eggready1.mp3"></audio>
+<audio id="sound2" src="eggready2.mp3"></audio>
+<audio id="sound3" src="eggready3.mp3"></audio>
 
 <script>
 function startTimer() {
@@ -101,16 +104,15 @@ function startTimer() {
             clearInterval(timerInterval);
             eggYolk.style.height = "100%";
             circleYolk.style.height = "100%";
-            var phrases = [
-                "It's egg time!",
-                "Oh egg-cellent! Time to eat",
-                "Yo yo yolk, eggyolk yo"
+            var sounds = [
+                document.getElementById("sound1"),
+                document.getElementById("sound2"),
+                document.getElementById("sound3")
             ];
-            var randomIndex = Math.floor(Math.random() * phrases.length);
-            var msg = new SpeechSynthesisUtterance(phrases[randomIndex]);
+            var randomIndex = Math.floor(Math.random() * sounds.length);
+            sounds[randomIndex].play();
             setTimeout(function() {
-                window.speechSynthesis.speak(msg);
-                alert(msg.text);
+                alert("It's egg time!");
             }, 1000); // Delay alert by 2 seconds
         }
     }, 1000);
