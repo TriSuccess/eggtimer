@@ -56,6 +56,11 @@
         font-size:40pt;
     }
 
+    /* Style for audio player */
+    audio {
+        margin-top: 20px;
+    }
+
 </style>
 </head>
 <body>
@@ -75,9 +80,11 @@
     </div>
 </div>
 
-<audio id="sound1" src="https://www.dropbox.com/scl/fi/itb30kyu1vwethjrs8z2g/eggready1.mp3?rlkey=pzwkix5gtwbnbh967zobhrfd4&st=63togcvi&raw=1"></audio>
-<audio id="sound2" src="https://www.dropbox.com/scl/fi/mprbl2vc1vuitz7p84ts8/eggready2.mp3?rlkey=znejsq81bxszmgifmvyultt9k&st=mqv3tzaz&raw=1"></audio> 
-<audio id="sound3" src="https://www.dropbox.com/scl/fi/gfo1hvjk7rqc4kokxz2xg/eggready3.mp3?rlkey=8l77rjd4l1tx7o7s399pm1ten&st=q61ola5p&raw=1"></audio>
+<!-- Audio player for the first sound -->
+<audio id="sound1" controls>
+    <source src="https://www.dropbox.com/scl/fi/itb30kyu1vwethjrs8z2g/eggready1.mp3?rlkey=pzwkix5gtwbnbh967zobhrfd4&st=63togcvi&raw=1" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 
 <script>
 function startTimer() {
