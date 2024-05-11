@@ -81,24 +81,35 @@
 </div>
 
 <!-- Audio player for the first sound -->
-<audio id="sound1" controls>
+<audio id="sound1" controls autoplay>
     <source src="https://www.dropbox.com/scl/fi/itb30kyu1vwethjrs8z2g/eggready1.mp3?rlkey=pzwkix5gtwbnbh967zobhrfd4&st=63togcvi&raw=1" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 <!-- Audio player for the second sound -->
-<audio id="sound2" controls>
+<audio id="sound2" controls autoplay>
     <source src="https://www.dropbox.com/scl/fi/mprbl2vc1vuitz7p84ts8/eggready2.mp3?rlkey=znejsq81bxszmgifmvyultt9k&st=mqv3tzaz&raw=1" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 <!-- Audio player for the third sound -->
-<audio id="sound3" controls>
+<audio id="sound3" controls autoplay>
     <source src="https://www.dropbox.com/scl/fi/gfo1hvjk7rqc4kokxz2xg/eggready3.mp3?rlkey=8l77rjd4l1tx7o7s399pm1ten&st=q61ola5p&raw=1" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 <script>
+window.onload = function() {
+    var sounds = [
+        document.getElementById("sound1"),
+        document.getElementById("sound2"),
+        document.getElementById("sound3")
+    ];
+    sounds.forEach(function(sound) {
+        sound.play();
+    });
+}
+
 function startTimer() {
     var timeInput = document.getElementById("timeInput").value;
     var totalTime = timeInput * 60;
