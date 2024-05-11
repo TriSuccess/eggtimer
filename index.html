@@ -81,7 +81,7 @@
 </div>
 
 <!-- Audio player for the first sound -->
-<audio id="sound1" controls>
+<audio id="sound1" controls autoplay>
     <source src="https://www.dropbox.com/scl/fi/itb30kyu1vwethjrs8z2g/eggready1.mp3?rlkey=pzwkix5gtwbnbh967zobhrfd4&st=63togcvi&raw=1" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
@@ -111,20 +111,15 @@ function startTimer() {
             clearInterval(timerInterval);
             eggYolk.style.height = "100%";
             circleYolk.style.height = "100%";
-            var sounds = [
-                document.getElementById("sound1"),
-                document.getElementById("sound2"),
-                document.getElementById("sound3")
-            ];
-            var randomIndex = Math.floor(Math.random() * sounds.length);
-            sounds[randomIndex].play();
+            var sound1 = document.getElementById("sound1");
+            sound1.play();
             setTimeout(function() {
                 alert("It's egg time!");
             }, 1000); // Delay alert by 2 seconds
             
             // Play the sound again after a delay
             setTimeout(function() {
-                sounds[randomIndex].play();
+                sound1.play();
             }, 2000); // Delay of 2 seconds
         }
     }, 1000);
